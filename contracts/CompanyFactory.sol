@@ -6,7 +6,7 @@ import "./Company.sol";
 contract CompanyFactory {
   Company[] private _companies;
 
-  event CompanyCreated(Company indexed Company, address indexed owner);
+  event CompanyCreated(Company indexed company, address indexed owner);
 
   uint256 constant maxLimit = 20;
 

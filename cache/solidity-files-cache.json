@@ -2,15 +2,15 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Company.sol": {
-      "lastModificationDate": 1677216674371,
-      "contentHash": "99ec4f4a1c63a9920cd830057c5e0968",
+      "lastModificationDate": 1677228443893,
+      "contentHash": "0ac0e970e8a0676d14babb1ccfcfa8fc",
       "sourceName": "contracts/Company.sol",
       "solcConfig": {
-        "version": "0.8.17",
+        "version": "0.8.0",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 5000
           },
           "outputSelection": {
             "*": {
@@ -30,7 +30,7 @@
       },
       "imports": [
         "./Ownable.sol",
-        "./libraries/SafeMath.sol"
+        "./SafeMath.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -40,15 +40,15 @@
       ]
     },
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Ownable.sol": {
-      "lastModificationDate": 1677147170824,
+      "lastModificationDate": 1677227465176,
       "contentHash": "264f95af8668e67233cc5bb28425951a",
       "sourceName": "contracts/Ownable.sol",
       "solcConfig": {
-        "version": "0.8.17",
+        "version": "0.8.0",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 5000
           },
           "outputSelection": {
             "*": {
@@ -76,16 +76,16 @@
         "Ownable"
       ]
     },
-    "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\libraries\\SafeMath.sol": {
-      "lastModificationDate": 1677147093005,
+    "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\SafeMath.sol": {
+      "lastModificationDate": 1677228420264,
       "contentHash": "162ccf43242f3d61992c57425c5829cf",
-      "sourceName": "contracts/libraries/SafeMath.sol",
+      "sourceName": "contracts/SafeMath.sol",
       "solcConfig": {
-        "version": "0.8.17",
+        "version": "0.8.0",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 5000
           },
           "outputSelection": {
             "*": {
@@ -116,11 +116,11 @@
       "contentHash": "e7f98c33ad1d39d8a6661bf0804fae36",
       "sourceName": "contracts/Context.sol",
       "solcConfig": {
-        "version": "0.8.17",
+        "version": "0.8.0",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 5000
           },
           "outputSelection": {
             "*": {
@@ -147,15 +147,15 @@
       ]
     },
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\CompanyFactory.sol": {
-      "lastModificationDate": 1677155416812,
-      "contentHash": "7618847db7767e1cec19bbb84a698d5f",
+      "lastModificationDate": 1677227421197,
+      "contentHash": "b3cff58f82d3b7a63b70442035bce2d1",
       "sourceName": "contracts/CompanyFactory.sol",
       "solcConfig": {
-        "version": "0.8.17",
+        "version": "0.8.0",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 5000
           },
           "outputSelection": {
             "*": {
