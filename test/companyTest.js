@@ -106,7 +106,7 @@ describe("companyContract test", () => {
             
             await company.payEmployee({ value: tokens(3000) })
 
-            //const updatebalance1 = await ethers.provider.getBalance("0xd321bdE4010a109e82cA5154bd412B84131050b6");
+            const updatebalance1 = await ethers.provider.getBalance("0xd321bdE4010a109e82cA5154bd412B84131050b6");
             const updatebalance2 = await ethers.provider.getBalance("0x00024FA2CBaF665aFaF272712261d600ef8AC1c4");
 
             expect(updatebalance1 - balance1).to.equal(1000);
