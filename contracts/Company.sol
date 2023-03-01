@@ -14,7 +14,7 @@ contract Company is Ownable {
     string employeeName;
     string employeeRank;
     address payable employeeAddress;
-    //uint256 payment;
+    uint256 payment;
   }
 
   mapping(uint256 => employeeInfo) employee;
