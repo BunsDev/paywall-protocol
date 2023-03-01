@@ -11,7 +11,7 @@ contract Company is Ownable {
 
   struct employeeInfo {
     uint256 employeeId;
-    //string employeeName;
+    string employeeName;
     string employeeRank;
     address payable employeeAddress;
     uint256 payment;
