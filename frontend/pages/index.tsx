@@ -12,6 +12,9 @@ import {
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>Paywall - Home</title>
+      </Head>
       <div className="w-full flex items-center align-center justify-center sm:pl-5 sm:pr-5 pl-10 pr-10">
         <div className="w-full max-w-[1200px]">
           <Banner />
