@@ -1,6 +1,6 @@
 # Paywall
 
-Paywall is a decentralized online financial service that gives you the ability to pay all your employees with crypto with one click.
+Paywall is a decentralized online financial service that allows you to pay all your employees with crypto currency with one click.
 
 ![screenshot](./frontend/assets/Screenshot%20(94).png)
 
