@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import SectionImage from "../assets/Track pic.png";
 import ButtonGroup from "./ButtonGroup";
 import mark from "../assets/Group 15.png";
@@ -33,11 +34,13 @@ const SecondSection = () => {
             carring around multiple credit cards
           </p>
         </div>
-        <ButtonGroup
-          handleClick={() => {}}
-          disable={false}
-          btnName="Learn more"
-        />
+        <Link href="/about">
+          <ButtonGroup
+            handleClick={() => {}}
+            disable={false}
+            btnName="Learn more"
+          />
+        </Link>
       </div>
     </div>
   );

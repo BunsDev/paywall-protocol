@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import SectionImage from "../assets/Analysis.png";
 import ButtonGroup from "./ButtonGroup";
@@ -16,11 +17,13 @@ const ThirdSection = () => {
             and can make smarter decisions.
           </p>
         </div>
-        <ButtonGroup
-          handleClick={() => {}}
-          disable={false}
-          btnName="Learn more"
-        />
+        <Link href="/about">
+          <ButtonGroup
+            handleClick={() => {}}
+            disable={false}
+            btnName="Learn more"
+          />
+        </Link>
       </div>
       <div>
         <Image

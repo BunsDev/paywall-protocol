@@ -2,6 +2,7 @@ import React from "react";
 import ButtonGroup from "./ButtonGroup";
 import Image from "next/image";
 import Mobile from "../assets/Banner Image.png";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -14,11 +15,13 @@ const Banner = () => {
         <p className="mt-4 mb-4 text-xl">
           Paywall is a free, secure and easy way to pay your employees. No fees!
         </p>
-        <ButtonGroup
-          handleClick={() => {}}
-          disable={false}
-          btnName="Get Started"
-        />
+        <Link href="/create">
+          <ButtonGroup
+            handleClick={() => {}}
+            disable={false}
+            btnName="Get Started"
+          />
+        </Link>
       </div>
       <div>
         <Image src={Mobile} width={500} height={700} alt="banner" />

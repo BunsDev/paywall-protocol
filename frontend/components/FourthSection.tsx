@@ -13,11 +13,12 @@ import "swiper/css/navigation";
 
 // import required modules
 import { EffectCards, Autoplay, Pagination, Navigation } from "swiper";
+import Link from "next/link";
 
 const FourthSection = () => {
   return (
     <div className="flex flex-wrap sm:space-y-4 space-y-0 justify-between items-center mt-16">
-      <div>
+      <div className="sm:mb-6 sm:justify-center sm:items-center sm:w-full">
         <Swiper
           effect={"cards"}
           grabCursor={true}
@@ -58,18 +59,6 @@ const FourthSection = () => {
               </p>
             </div>
           </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="text-black items-center justify-center flex flex-col drop-shadow-xl p-4 bg-white h-[100%]">
-              <Image src={image1} width={100} height={100} alt="photo" />
-              <h1>Dave Don</h1>
-              <p className="mt-4 text-lg font-xs p2">
-                Paywall lets you add a payment button to your ecommerce site in
-                seconds and start accepting credit card payments on your mobile
-                phone...
-              </p>
-            </div>
-          </SwiperSlide>
         </Swiper>
       </div>
       <div className="w-[500px]">
@@ -82,11 +71,13 @@ const FourthSection = () => {
             to best illustrate the quality of our services.
           </p>
         </div>
-        <ButtonGroup
-          handleClick={() => {}}
-          disable={false}
-          btnName="Learn more"
-        />
+        <Link href="/about">
+          <ButtonGroup
+            handleClick={() => {}}
+            disable={false}
+            btnName="Learn more"
+          />
+        </Link>
       </div>
     </div>
   );
