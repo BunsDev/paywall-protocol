@@ -6,10 +6,11 @@ const tokens = (n) => {
 };
 
 describe("companyContract test", () => {
-    let company, deployer;
+    let company, deployer, account1;
 
     beforeEach(async () => {
         deployer = accounts[0];
+        account1 = accounts[1];
         const CompanyContract = await ethers.getContractFactory("Company");
         company = await CompanyContract.deploy(
             1,
@@ -45,6 +46,9 @@ describe("companyContract test", () => {
             expect(result.events[0].args[2]).to.equal("0xd321bdE4010a109e82cA5154bd412B84131050b6");
         });
 
+        it("reverts for non-owner", async () => {
+            await expect(company.connect(account1).registerEmployee("Paschal", "CTO", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 1000)).to.be.reverted;
+        });
     })
 
     describe("Edit employee", () => {
@@ -56,6 +60,11 @@ describe("companyContract test", () => {
             expect(result.events[0].args[0]).to.equal("Paschal");
             expect(result.events[0].args[1]).to.equal("HR");
             expect(result.events[0].args[3]).to.equal(2000);
+        });
+
+        it("reverts for non-owner", async () => {
+            await company.registerEmployee("Paschal", "CTO", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 1000);
+            await expect(company.connect(account1).editEmployee("Paschal", "HR", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 2000, 0)).to.be.reverted;
         });
 
     })
@@ -87,8 +96,8 @@ describe("companyContract test", () => {
 
     describe("Pay employees", () => {
         it("Pay the employees", async () => {
-            await company.registerEmployee("Paschal", "CTO", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 1000);
-            await company.registerEmployee("Victor", "HR", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 2000);
+            await company.connect(deployer).registerEmployee("Paschal", "CTO", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 1000);
+            await company.connect(deployer).registerEmployee("Victor", "HR", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 2000);
             
             const transferTx = await company.payEmployee({ value: tokens(3000) })
             const result = await transferTx.wait();
@@ -111,6 +120,12 @@ describe("companyContract test", () => {
 
             expect(updatebalance1 - balance1).to.equal(1000);
             expect(updatebalance2 - balance2).to.equal(2000);
+        });
+
+        it("reverts for non-owner", async () => {
+            await company.registerEmployee("Paschal", "CTO", "0xd321bdE4010a109e82cA5154bd412B84131050b6", 1000);
+            await company.registerEmployee("Victor", "HR", "0x00024FA2CBaF665aFaF272712261d600ef8AC1c4", 2000);
+            await expect(company.connect(account1).payEmployee({ value: tokens(3000) })).to.be.reverted;
         });
 
     })
