@@ -25,18 +25,18 @@ Paywall is a decentralized online financial service that allows you to pay all y
 📄 Clone or fork Paywall:
 
 ```
-https://github.com/paschal533/Vidhub.git
+https://github.com/paschal533/Paywall.git
 ```
 💿 Install all dependencies:
 
 ```
-$ cd vidhub
+$ cd Paywall
 $ npm install
 ```
 
 # 🎗 Add enviroment varibles
 
-Rename the file `env.local.example` to `env.local`
+Rename the file `.env.example` to `.env`
 
 Add all the required enviroment varibles in the file
 
