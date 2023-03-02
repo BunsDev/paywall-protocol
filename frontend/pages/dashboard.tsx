@@ -82,8 +82,8 @@ const Dashboard = () => {
               <Tbody>
                 {!isLoadingCompany ? (
                   companies.length > 0 ? (
-                    companies.map((item: any) => (
-                      <Tr>
+                    companies.map((item: any, index: any) => (
+                      <Tr key={index}>
                         <Td>{item.name}</Td>
                         <Td>{item.id}</Td>
                         <Td isNumeric>

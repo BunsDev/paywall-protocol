@@ -31,7 +31,7 @@ import {
   Input,
   Button,
   Spinner,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { ethers } from "ethers";
 
@@ -39,7 +39,7 @@ const Details = () => {
   const router = useRouter();
   const toast = useToast();
   const companyAddress = router.query.address as unknown as string;
-  const { queryEmployees, payEmployee, editEmployee, registerEmployee} =
+  const { queryEmployees, payEmployee, editEmployee, registerEmployee } =
     useContext(CompanyContext);
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -66,31 +66,33 @@ const Details = () => {
 
   useEffect(() => {
     const getEmployees = async () => {
-
-      if(companyAddress){
+      if (companyAddress) {
         setLoading(true);
-      const data = await queryEmployees(companyAddress);
+        const data = await queryEmployees(companyAddress);
 
-      setEmployees(data);
+        setEmployees(data);
 
-      const items = await Promise.all(
-        data.map(async (item) => {
-          return parseFloat(item.paymentInFantom);
-        })
-      );
+        const items = await Promise.all(
+          data.map(async (item) => {
+            return parseFloat(item.paymentInFantom);
+          })
+        );
 
-      const res = await Promise.all(
-        data.map(async (item) => {
-          return item.paymentInUSD;
-        })
-      );
+        const res = await Promise.all(
+          data.map(async (item) => {
+            return item.paymentInUSD;
+          })
+        );
 
-      items.length > 0 ? setTotalPaymentInFantom(items.reduce((a, b) => a + b)) : null;
-      res.length > 0 ? setTotalPaymentInUSD(res.reduce((a, b) => a + b)) : null;
+        items.length > 0
+          ? setTotalPaymentInFantom(items.reduce((a, b) => a + b))
+          : null;
+        res.length > 0
+          ? setTotalPaymentInUSD(res.reduce((a, b) => a + b))
+          : null;
 
-      setLoading(false);
+        setLoading(false);
       }
-       
     };
 
     getEmployees();
@@ -113,83 +115,90 @@ const Details = () => {
       );
       setIsAddingEmployee("success");
       toast({
-        title: 'Employee Added',
-        position: 'top-left',
+        title: "Employee Added",
+        position: "top-left",
         description: "You have successfully added a new employee",
-        status: 'success',
+        status: "success",
         duration: 9000,
         isClosable: true,
-      })
+      });
     } catch (error) {
       console.log(error);
       setIsAddingEmployee("error");
       toast({
-        title: 'Account not created.',
-        position: 'top-left',
+        title: "Account not created.",
+        position: "top-left",
         description: "Something went wrong",
-        status: 'error',
+        status: "error",
         duration: 9000,
         isClosable: true,
-      })
+      });
     }
   };
 
-  const EditEmployee = async() => {
+  const EditEmployee = async () => {
     const { name, position, address, payment, id } = editFormInput;
     if (!name && !position && !address && !payment && !id) return;
-    setIsEditingEmployee("inProgress")
-    setBtnDisable(true)
+    setIsEditingEmployee("inProgress");
+    setBtnDisable(true);
 
-    try{
-      await editEmployee(name, position, address, parseFloat(payment), id, companyAddress)
-      setIsEditingEmployee("success")
+    try {
+      await editEmployee(
+        name,
+        position,
+        address,
+        parseFloat(payment),
+        id,
+        companyAddress
+      );
+      setIsEditingEmployee("success");
       toast({
-        title: 'Employees edited successfully',
+        title: "Employees edited successfully",
         description: "Your employee info has been updated by you.",
-        position: 'top-left',
-        status: 'success',
+        position: "top-left",
+        status: "success",
         duration: 9000,
         isClosable: true,
-      })
-    }catch(error){
-      console.log(error)
-      setIsEditingEmployee("error")
+      });
+    } catch (error) {
+      console.log(error);
+      setIsEditingEmployee("error");
       toast({
-        title: 'Employees not edited',
+        title: "Employees not edited",
         description: "An error occurred",
-        position: 'top-left',
-        status: 'error',
+        position: "top-left",
+        status: "error",
         duration: 9000,
         isClosable: true,
-      })
+      });
     }
-  }
+  };
 
   const payEmployees = async () => {
-    if(!employees && !companyAddress) return;
+    if (!employees && !companyAddress) return;
 
     try {
       await payEmployee(totalPaymentInFantom, companyAddress);
       toast({
-        title: 'Employees paid successfully',
+        title: "Employees paid successfully",
         description: "Your employees has been paid by you.",
-        position: 'top-left',
-        status: 'success',
+        position: "top-left",
+        status: "success",
         duration: 9000,
         isClosable: true,
-      })
-    }catch(error){
-      console.log(error)
+      });
+    } catch (error) {
+      console.log(error);
       toast({
-        title: 'Employees not paid',
-        position: 'top-left',
+        title: "Employees not paid",
+        position: "top-left",
         description: "Something went wrong.",
-        status: 'error',
+        status: "error",
         duration: 9000,
         isClosable: true,
-      })
+      });
     }
-  }
+  };
 
   return (
     <div className="w-full flex items-center align-center justify-center sm:pl-5 sm:pr-5 pl-10 pr-10">
@@ -204,7 +213,9 @@ const Details = () => {
           </Button>
 
           <div className=" flex flex-wrap justify-center items-center">
-            <p className="mx-4">Total : $ {totalPaymentInUSD && totalPaymentInUSD?.toFixed(2)}</p>
+            <p className="mx-4">
+              Total : $ {totalPaymentInUSD && totalPaymentInUSD?.toFixed(2)}
+            </p>
             <Button
               onClick={() => payEmployees()}
               colorScheme="red"
@@ -244,8 +255,8 @@ const Details = () => {
               <Tbody>
                 {!loading ? (
                   employees?.length != 0 ? (
-                    employees?.map((employee) => (
-                      <Tr>
+                    employees?.map((employee, index) => (
+                      <Tr key={index}>
                         <Td>{employee.employeeName}</Td>
                         <Td>{employee.employeeRank}</Td>
                         <Td>{employee.id}</Td>
@@ -256,13 +267,16 @@ const Details = () => {
                         <Td>$ {employee.paymentInUSD.toFixed(2)}</Td>
                         <Td>
                           <Button
-                            onClick={() => {updateEditFormInput({ 
-                              name: employee.employeeName, 
-                              position: employee.employeeRank,
-                              address : employee.employeeAddress,
-                              payment : employee.paymentInUSD,
-                              id : employee.id
-                            }), setOpenModal(true)}}
+                            onClick={() => {
+                              updateEditFormInput({
+                                name: employee.employeeName,
+                                position: employee.employeeRank,
+                                address: employee.employeeAddress,
+                                payment: employee.paymentInUSD,
+                                id: employee.id,
+                              }),
+                                setOpenModal(true);
+                            }}
                             colorScheme="purple"
                             mr={3}
                           >
@@ -404,114 +418,132 @@ const Details = () => {
           </ModalContent>
         </Modal>
 
-         <div>
-         <Modal isOpen={openModal} onClose={() => {setOpenModal(false), setIsEditingEmployee(""), setBtnDisable(false)}}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Edit an Employee</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}>
-              {isEditingEmployee === "" ? (
-                <>
-                  <FormControl>
-                    <FormLabel>Name</FormLabel>
-                    <Input
-                      placeholder="Name of the employee"
-                      value={editFormInput.name}
-                      onChange={(e) =>
-                        updateEditFormInput({ ...editFormInput, name: e.target.value })
-                      }
-                    />
-                  </FormControl>
+        <div>
+          <Modal
+            isOpen={openModal}
+            onClose={() => {
+              setOpenModal(false),
+                setIsEditingEmployee(""),
+                setBtnDisable(false);
+            }}
+          >
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Edit an Employee</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody pb={6}>
+                {isEditingEmployee === "" ? (
+                  <>
+                    <FormControl>
+                      <FormLabel>Name</FormLabel>
+                      <Input
+                        placeholder="Name of the employee"
+                        value={editFormInput.name}
+                        onChange={(e) =>
+                          updateEditFormInput({
+                            ...editFormInput,
+                            name: e.target.value,
+                          })
+                        }
+                      />
+                    </FormControl>
 
-                  <FormControl mt={4}>
-                    <FormLabel>Position</FormLabel>
-                    <Input
-                      placeholder="Position of the employee"
-                      value={editFormInput.position}
-                      onChange={(e) =>
-                        updateEditFormInput({
-                          ...editFormInput,
-                          position: e.target.value,
-                        })
-                      }
-                    />
-                  </FormControl>
+                    <FormControl mt={4}>
+                      <FormLabel>Position</FormLabel>
+                      <Input
+                        placeholder="Position of the employee"
+                        value={editFormInput.position}
+                        onChange={(e) =>
+                          updateEditFormInput({
+                            ...editFormInput,
+                            position: e.target.value,
+                          })
+                        }
+                      />
+                    </FormControl>
 
-                  <FormControl mt={4}>
-                    <FormLabel>Wallet address</FormLabel>
-                    <Input
-                      placeholder="Wallet address of the employee"
-                      value={editFormInput.address}
-                      onChange={(e) =>
-                        updateEditFormInput({
-                          ...editFormInput,
-                          address: e.target.value,
-                        })
-                      }
-                    />
-                  </FormControl>
+                    <FormControl mt={4}>
+                      <FormLabel>Wallet address</FormLabel>
+                      <Input
+                        placeholder="Wallet address of the employee"
+                        value={editFormInput.address}
+                        onChange={(e) =>
+                          updateEditFormInput({
+                            ...editFormInput,
+                            address: e.target.value,
+                          })
+                        }
+                      />
+                    </FormControl>
 
-                  <FormControl mt={4}>
-                    <FormLabel>Payment in USD</FormLabel>
-                    <Input
-                      placeholder="Payment of the employee in USD"
-                      value={parseFloat(editFormInput.payment).toFixed(2)}
-                      onChange={(e) =>
-                        updateEditFormInput({
-                          ...editFormInput,
-                          payment: e.target.value,
-                        })
-                      }
+                    <FormControl mt={4}>
+                      <FormLabel>Payment in USD</FormLabel>
+                      <Input
+                        placeholder="Payment of the employee in USD"
+                        value={parseFloat(editFormInput.payment).toFixed(2)}
+                        onChange={(e) =>
+                          updateEditFormInput({
+                            ...editFormInput,
+                            payment: e.target.value,
+                          })
+                        }
+                      />
+                    </FormControl>
+                  </>
+                ) : isEditingEmployee === "inProgress" ? (
+                  <div className="justify-center mt-16 mb-16 items-center w-full flex flex-col">
+                    <p className="text-xl font-semibold mb-4">In Progress</p>
+                    <Spinner
+                      thickness="4px"
+                      speed="0.65s"
+                      emptyColor="gray.200"
+                      color="blue.500"
+                      size="xl"
                     />
-                  </FormControl>
-                </>
-              ) : isEditingEmployee === "inProgress" ? (
-                <div className="justify-center mt-16 mb-16 items-center w-full flex flex-col">
-                  <p className="text-xl font-semibold mb-4">In Progress</p>
-                  <Spinner
-                    thickness="4px"
-                    speed="0.65s"
-                    emptyColor="gray.200"
-                    color="blue.500"
-                    size="xl"
-                  />
-                </div>
-              ) : isEditingEmployee === "success" ? (
-                <div className="justify-center mt-16 items-center w-full flex flex-col">
-                  <p className="text-xl font-semibold mb-4">
-                    Employee Edited Successfully
-                  </p>
-                  <Image
-                    src={AddSuccess}
-                    height={50}
-                    width={200}
-                    alt="success"
-                  />
-                </div>
-              ) : (
-                <div className="justify-center mt-16 items-center w-full flex flex-col">
-                  <p className="text-xl font-semibold mb-4">
-                    An error Occurred
-                  </p>
-                </div>
-              )}
-            </ModalBody>
+                  </div>
+                ) : isEditingEmployee === "success" ? (
+                  <div className="justify-center mt-16 items-center w-full flex flex-col">
+                    <p className="text-xl font-semibold mb-4">
+                      Employee Edited Successfully
+                    </p>
+                    <Image
+                      src={AddSuccess}
+                      height={50}
+                      width={200}
+                      alt="success"
+                    />
+                  </div>
+                ) : (
+                  <div className="justify-center mt-16 items-center w-full flex flex-col">
+                    <p className="text-xl font-semibold mb-4">
+                      An error Occurred
+                    </p>
+                  </div>
+                )}
+              </ModalBody>
 
-            <ModalFooter>
-              <Button
-                isLoading={btnDisable}
-                onClick={() => EditEmployee()}
-                colorScheme="purple"
-                mr={3}
-              >
-                Edit employee
-              </Button>
-              <Button onClick={() => {setOpenModal(false), setIsEditingEmployee(""), setBtnDisable(false)}}>Cancel</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-         </div>
+              <ModalFooter>
+                <Button
+                  isLoading={btnDisable}
+                  onClick={() => EditEmployee()}
+                  colorScheme="purple"
+                  mr={3}
+                >
+                  Edit employee
+                </Button>
+                <Button
+                  onClick={() => {
+                    setOpenModal(false),
+                      setIsEditingEmployee(""),
+                      setBtnDisable(false);
+                  }}
+                >
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+        </div>
       </div>
     </div>
   );

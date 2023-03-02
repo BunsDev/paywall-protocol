@@ -72,7 +72,11 @@ const FQA = () => {
         />
       </div>
 
-      <ButtonGroup btnName="Contact Us" />
+      <ButtonGroup
+        handleClick={() => {}}
+        disable={false}
+        btnName="Contact Us"
+      />
     </div>
   );
 };

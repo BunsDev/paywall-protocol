@@ -129,7 +129,7 @@ export const useCompanies = () => {
         employeeRank,
         paymentInUSD,
         paymentInFantom,
-        id
+        id,
       });
     }
 

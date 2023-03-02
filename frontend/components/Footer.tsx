@@ -3,8 +3,8 @@ import Image from "next/image";
 import Andriod from "../assets/logos_google-play-icon.png";
 import Apple from "../assets/bxl_apple.png";
 import Facebok from "../assets/facebook-black.png";
-import twitter from "../assets/twitter-black.png"
-import vinem from "../assets/vimeo-black.png"
+import twitter from "../assets/twitter-black.png";
+import vinem from "../assets/vimeo-black.png";
 import youtube from "../assets/youtube-black.png";
 import Icons from "../assets/Social.png";
 import Logo from "../assets/Frame 2.png";
@@ -47,12 +47,12 @@ const Footer = () => {
             <p className="text-xl font-bold">Explore</p>
             <p className="text-xl font-bold">Books</p>
           </div>
-           <div className="flex flex-wrap justify-center items-center space-x-4">
-             <Image src={Facebok} height={30} width={30} alt="logo" />
-             <Image src={twitter} height={30} width={30} alt="logo" />
-             <Image src={vinem} height={30} width={30} alt="logo" />
-             <Image src={youtube} height={30} width={30} alt="logo" />
-           </div>
+          <div className="flex flex-wrap justify-center items-center space-x-4">
+            <Image src={Facebok} height={30} width={30} alt="logo" />
+            <Image src={twitter} height={30} width={30} alt="logo" />
+            <Image src={vinem} height={30} width={30} alt="logo" />
+            <Image src={youtube} height={30} width={30} alt="logo" />
+          </div>
         </div>
 
         <div className="bg-white h-[1px] rounded-lg mt-6 w-full" />
