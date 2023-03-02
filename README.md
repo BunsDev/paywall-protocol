@@ -22,7 +22,7 @@ Paywall is a decentralized online financial service that gives you the ability t
 
 # 🚀 Quick Start
 
-📄 Clone or fork Vidhub:
+📄 Clone or fork Paywall:
 
 ```
 https://github.com/paschal533/Vidhub.git
