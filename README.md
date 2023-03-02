@@ -1,6 +1,6 @@
-# Vidhub
+# Paywall
 
-Vidhub is a decentralized social media, video-sharing app that allows users to create, watch, like, comment, buy and share videos shot on mobile devices or webcams. The video will be minted as NFT and posted, and can be bought by another user. Users are also rewarded with 0.025 of our VID token each time they post a video.
+Paywall is a decentralized online financial service that gives you the ability to pay all your employees with crypto with one click.
 
 ![screenshot](./frontend/assets/Screenshot%20(94).png)
 
@@ -10,14 +10,11 @@ Vidhub is a decentralized social media, video-sharing app that allows users to c
 - Javascript (NextJs & Unit Testing)
 - Ethers JS (Blockchain Interaction)
 - Hardhat (Smart Contract Development Framework)
-- Livepeer (Video storage && player)
-- Web3.storage - IPFS (NFT File Storage)
-- Polygon Mumbai (Blockchain network)
+- Fantom (Blockchain network)
 
 # ⛓ Blockchain Protocol used
 
 - ERC-20 standard
-- ERC-721 standard
 
 # ⚙ Requirements For Initial Setup
 - Install NodeJS, should work with any node version below 18.12.1
