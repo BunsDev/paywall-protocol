@@ -63,26 +63,21 @@ npx hardhat compile
 npx hardhat run --network mainnet scripts/deploy.js
 ```
 
-# 🚴‍♂️ Run your App:
+# 📄 interacting with the Frontend
+
+```
+cd frontend
+
+npm install
+```
+
+# 🚴‍♂️ Run the App:
 
 ```
 npm run dev
 ```
 
-- Note :- This app was deploy to Polygon Mumbai testnet, so you need to connect your Metamask wallet to  Polygon Mumbai testnet before you can Interact with the app.
-
-# 📄 interacting with the Smart-contract
-
-Rename the file `env.example` to `env`
-
-Add all the required enviroment varibles in the file
-
-```
-API_KEY =     //PolygonScan API_KEY
-PrivateKey =  // Metamask PrivateKey
-ProjectID =   // Infura ProjectID
-```
-
+- Note :- This app was deployed to Fantom mainnet, so you need to connect your Metamask wallet to Fantom mainnet before you can Interact with the app.
  
 
 # 📄 Smart-contract address
