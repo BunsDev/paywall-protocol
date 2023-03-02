@@ -41,13 +41,26 @@ Rename the file `.env.example` to `.env`
 Add all the required enviroment varibles in the file
 
 ```
-NEXT_PUBLIC_SANITY_TOKEN = 
-NEXT_PUBLIC_GOOGLE_API_TOKEN= 
-NEXT_PUBLIC_BASE_URL= http://localhost:3000
-NEXT_PUBLIC_CONTRACT_ADDRESS= 0x7ec205F8573E16678fE130A132a0956eEc79E9B2
-NEXT_PUBLIC_API_KEY = //Your Livepeer API Key
-NEXT_PUBLIC_INFURA_IPFS_PROJECT_ID=
-NEXT_PUBLIC_INFURA_IPFS_PROJECT_SECRET=
+API_KEY = 
+PRIVATE_KEY =
+ 
+```
+
+# 🛠 Test the Smart-contract:
+
+```
+npx hardhat test
+```
+
+# 🎗 Compile the Smart-contract:
+
+```
+npx hardhat compile
+```
+# 🔗 Deploy the Smart-contract:
+
+```
+npx hardhat run --network mainnet scripts/deploy.js
 ```
 
 # 🚴‍♂️ Run your App:
@@ -70,37 +83,16 @@ PrivateKey =  // Metamask PrivateKey
 ProjectID =   // Infura ProjectID
 ```
 
-# 🛠 Test the Smart-contract:
-
-```
-npx hardhat test
-```
-
-# 🎗 Compile the Smart-contract:
-
-```
-npx hardhat compile
-```
-# 🔗 Deploy the Smart-contract:
-
-```
-npx hardhat run --network mumbai scripts/deploy.js
-```
+ 
 
 # 📄 Smart-contract address
 
 ```
-0x7ec205F8573E16678fE130A132a0956eEc79E9B2
+0xDaE63442CeB6d2BEB307Ec14A2cd7326d72B86B0
 ```
 
-# 📄 VID token Smart-contract address
+# 📜 Fantom Explorer
 
 ```
-0x3dDac85FA891cA51BF339f1df791AA002ec08A8A
-```
-
-# 📜 Mumbai Testnet Explorer
-
-```
-https://mumbai.polygonscan.com/address/0x7ec205F8573E16678fE130A132a0956eEc79E9B2
+https://ftmscan.com/address/0xDaE63442CeB6d2BEB307Ec14A2cd7326d72B86B0#code
 ```
