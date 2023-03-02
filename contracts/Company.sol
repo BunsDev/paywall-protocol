@@ -40,7 +40,7 @@ contract Company is Ownable {
   }
 
   // add an employee
-  function registerEmployee(string memory _employeeName, string memory _employeeRank , address payable _employeeAddress, uint256 _payment ) public onlyOwner {
+  function registerEmployee(string memory _employeeName, string memory _employeeRank , address payable _employeeAddress, uint256 _payment ) public {
       employeeInfo storage newEmployee = employee[currentId];
       newEmployee.employeeId = currentId;
       newEmployee.employeeName = _employeeName;
@@ -53,7 +53,7 @@ contract Company is Ownable {
   }
 
   //Edit employee
-  function editEmployee(string memory _employeeName, string memory _employeeRank , address payable _employeeAddress, uint256 _payment, uint256 _id ) public onlyOwner {
+  function editEmployee(string memory _employeeName, string memory _employeeRank , address payable _employeeAddress, uint256 _payment, uint256 _id ) public {
       employeeInfo storage modifyEmployee = employee[_id];
       modifyEmployee.employeeName = _employeeName;
       modifyEmployee.employeeRank = _employeeRank;
@@ -84,7 +84,7 @@ contract Company is Ownable {
   }
 
   // pay employees
-  function payEmployee() public onlyOwner payable {
+  function payEmployee() public payable {
       uint256 count = currentId;
 
       for (uint256 i = 0; i < count; i++) {

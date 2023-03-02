@@ -1,44 +1,6 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Company.sol": {
-      "lastModificationDate": 1677228443893,
-      "contentHash": "0ac0e970e8a0676d14babb1ccfcfa8fc",
-      "sourceName": "contracts/Company.sol",
-      "solcConfig": {
-        "version": "0.8.0",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 5000
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./Ownable.sol",
-        "./SafeMath.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Company"
-      ]
-    },
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Ownable.sol": {
       "lastModificationDate": 1677227465176,
       "contentHash": "264f95af8668e67233cc5bb28425951a",
@@ -144,6 +106,44 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Company.sol": {
+      "lastModificationDate": 1677730217528,
+      "contentHash": "8fdabdf3a61e7d3697e1ffc39a416aea",
+      "sourceName": "contracts/Company.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 5000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Ownable.sol",
+        "./SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Company"
       ]
     },
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\CompanyFactory.sol": {
