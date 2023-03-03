@@ -153,7 +153,7 @@ const Details = () => {
       );
       setIsEditingEmployee("success");
       toast({
-        title: "Employees edited successfully",
+        title: "Employee edited successfully",
         description: "Your employee info has been updated by you.",
         position: "top-left",
         status: "success",
@@ -164,7 +164,7 @@ const Details = () => {
       console.log(error);
       setIsEditingEmployee("error");
       toast({
-        title: "Employees not edited",
+        title: "Employee not edited",
         description: "An error occurred",
         position: "top-left",
         status: "error",
@@ -181,7 +181,7 @@ const Details = () => {
       await payEmployee(totalPaymentInFantom, companyAddress);
       toast({
         title: "Employees paid successfully",
-        description: "Your employees has been paid by you.",
+        description: "Your employees have been paid by you.",
         position: "top-left",
         status: "success",
         duration: 9000,
