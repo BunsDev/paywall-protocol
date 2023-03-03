@@ -3,8 +3,6 @@ import { ethers } from "ethers";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { useSigner } from "wagmi";
-import { IdrissCrypto } from "idriss-crypto";
-//import { AssetType } from "idriss-crypto/lib/types/assetType";
 
 export const useCompanies = () => {
   const { currentAccount } = useContext(AuthContext);
@@ -12,35 +10,6 @@ export const useCompanies = () => {
   const [companies, setCompanies] = useState<any[]>([]);
   const { data: signer, isError, isLoading } = useSigner();
   const [currentSigner, setCurrentSigner] = useState<any>();
-  const idriss = new IdrissCrypto()
-
-  //Idriss implentation testing
-  /*useEffect(() => {
-     const test = async () => {
-      try{
-        const transactionReceipt = await idriss.transferToIDriss(
-          "hello@idriss.xyz",
-          {
-              network: "evm",
-              coin: "MATIC",
-              walletTag: "Metamask ETH"
-          },
-          {
-              type: 1,
-              amount: 150,
-              assetContractAddress: "0x995945Fb74e0f8e345b3f35472c3e07202Eb38Ac"
-          },
-          "hello dear"
-          )
-      
-      console.log(transactionReceipt)
-      }catch(error){
-        console.log(error)
-      }
-     }
-
-     test()
-  }, [])*/
 
   useEffect(() => {
     let isMounted = true;

@@ -253,7 +253,9 @@ export interface Company extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    getAllEmployee(overrides?: CallOverrides): Promise<
+    getAllEmployee(
+      overrides?: CallOverrides
+    ): Promise<
       [string[], string[], string[], BigNumber[], BigNumber[]] & {
         employeeNames: string[];
         employeeRanks: string[];
@@ -309,7 +311,9 @@ export interface Company extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  getAllEmployee(overrides?: CallOverrides): Promise<
+  getAllEmployee(
+    overrides?: CallOverrides
+  ): Promise<
     [string[], string[], string[], BigNumber[], BigNumber[]] & {
       employeeNames: string[];
       employeeRanks: string[];
@@ -365,7 +369,9 @@ export interface Company extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getAllEmployee(overrides?: CallOverrides): Promise<
+    getAllEmployee(
+      overrides?: CallOverrides
+    ): Promise<
       [string[], string[], string[], BigNumber[], BigNumber[]] & {
         employeeNames: string[];
         employeeRanks: string[];
