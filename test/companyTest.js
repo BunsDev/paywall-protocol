@@ -135,7 +135,7 @@ describe("companyContract test", () => {
 
             console.log(balance1)
 
-            //console.log((updatebalance1 - balance1).toString().slice(0, 4))
+            console.log((updatebalance1 - balance1).toString().slice(0, 4))
             console.log(tokens(expectBalance1).toString().slice(0, 4))
             console.log(tokens(expectBalance1).toString())
             console.log(expectBalance1)
