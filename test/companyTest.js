@@ -131,6 +131,10 @@ describe("companyContract test", () => {
             const expectBalance1 =  1000 / exchangeRate.USD;
             const expectBalance2 =  2000 / exchangeRate.USD;
 
+            console.log(updatebalance1)
+
+            console.log(balance1)
+
             console.log((updatebalance1 - balance1).toString().slice(0, 4))
             console.log(tokens(expectBalance1).toString().slice(0, 4))
             console.log(tokens(expectBalance1).toString())
