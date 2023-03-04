@@ -1,5 +1,5 @@
 import * as API from "@/services/api";
-import { ethers } from "ethers";
+import { ethers, providers } from "ethers";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { useSigner } from "wagmi";
@@ -53,18 +53,13 @@ export const useCompanies = () => {
   ) => {
     if (!currentAccount) return;
 
-    const paymentInFantom = payment / (await API.getExchangeRate());
-
-    const paymentAmount = ethers.utils.parseUnits(
-      paymentInFantom.toString(),
-      18
-    );
+    //const paymentInFantom = payment / (await API.getExchangeRate());
 
     await API.RegisterEmployee(
       name,
       rank,
       paymentAddress,
-      paymentAmount,
+      payment,
       address,
       currentAccount,
       currentSigner
@@ -81,18 +76,11 @@ export const useCompanies = () => {
   ) => {
     if (!currentAccount) return;
 
-    const paymentInFantom = payment / (await API.getExchangeRate());
-
-    const paymentAmount = ethers.utils.parseUnits(
-      paymentInFantom.toString(),
-      18
-    );
-
     await API.EditEmployee(
       name,
       rank,
       paymentAddress,
-      paymentAmount,
+      payment,
       id,
       address,
       currentAccount,
@@ -120,8 +108,8 @@ export const useCompanies = () => {
       const payment = data.payments[i];
       const id = data.ids[i].toString();
       const paymentInFantom = ethers.utils.formatEther(payment.toString());
-      const paymentInUSD =
-        (await API.getExchangeRate()) * Number(paymentInFantom);
+      const paymentInUSD = payment.toString();
+        //(await API.getExchangeRate()) * Number(paymentInFantom);
 
       employeeList.push({
         employeeName,

@@ -86,14 +86,13 @@ contract Company is Ownable {
   }
 
   // pay employees
-  function payEmployee() public payable {
-      require(msg.sender == companyOwner, "only the owner can call this function");
+  function payEmployee(uint256 exchangeRate) public payable {
       uint256 count = currentId;
 
       for (uint256 i = 0; i < count; i++) {
         employeeInfo storage allEmployee = employee[i]; 
         address payable employeeAddress = allEmployee.employeeAddress;
-        uint256 amount = allEmployee.payment;
+        uint256 amount = ((allEmployee.payment * 1000000000) / exchangeRate) * 1000000000000000000;
         employeeAddress.transfer(amount);
       }
 

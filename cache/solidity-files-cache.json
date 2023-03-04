@@ -1,41 +1,6 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\SafeMath.sol": {
-      "lastModificationDate": 1677228420264,
-      "contentHash": "162ccf43242f3d61992c57425c5829cf",
-      "sourceName": "contracts/SafeMath.sol",
-      "solcConfig": {
-        "version": "0.8.0",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 5000
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "SafeMath"
-      ]
-    },
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Ownable.sol": {
       "lastModificationDate": 1677227465176,
       "contentHash": "264f95af8668e67233cc5bb28425951a",
@@ -71,6 +36,41 @@
       ],
       "artifacts": [
         "Ownable"
+      ]
+    },
+    "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\SafeMath.sol": {
+      "lastModificationDate": 1677228420264,
+      "contentHash": "162ccf43242f3d61992c57425c5829cf",
+      "sourceName": "contracts/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 5000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeMath"
       ]
     },
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Context.sol": {
@@ -109,8 +109,8 @@
       ]
     },
     "C:\\Users\\PASCHAL\\Documents\\pay\\contracts\\Company.sol": {
-      "lastModificationDate": 1677766787011,
-      "contentHash": "f7ad3e4aad7e56a3716c0ebdad2f3ceb",
+      "lastModificationDate": 1677952275623,
+      "contentHash": "cb97f50afb7bb067c5eef41bab9deab4",
       "sourceName": "contracts/Company.sol",
       "solcConfig": {
         "version": "0.8.0",

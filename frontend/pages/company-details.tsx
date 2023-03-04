@@ -80,7 +80,7 @@ const Details = () => {
 
         const res = await Promise.all(
           data.map(async (item) => {
-            return item.paymentInUSD;
+            return Number(item.paymentInUSD);
           })
         );
 
@@ -178,7 +178,7 @@ const Details = () => {
     if (!employees && !companyAddress) return;
 
     try {
-      await payEmployee(totalPaymentInFantom, companyAddress);
+      await payEmployee(totalPaymentInUSD, companyAddress);
       toast({
         title: "Employees paid successfully",
         description: "Your employees have been paid by you.",
@@ -214,7 +214,7 @@ const Details = () => {
 
           <div className=" flex flex-wrap justify-center items-center">
             <p className="mx-4">
-              Total : $ {totalPaymentInUSD && totalPaymentInUSD?.toFixed(2)}
+              Total : $  {totalPaymentInUSD ? totalPaymentInUSD : 0}
             </p>
             <Button
               onClick={() => payEmployees()}
@@ -264,7 +264,7 @@ const Details = () => {
                           {employee.employeeAddress.slice(0, 4)}...
                           {employee.employeeAddress.slice(38)}
                         </Td>
-                        <Td>$ {employee.paymentInUSD.toFixed(2)}</Td>
+                        <Td>$ {employee.paymentInUSD}</Td>
                         <Td>
                           <Button
                             onClick={() => {
@@ -315,7 +315,7 @@ const Details = () => {
           </TableContainer>
         </div>
 
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={() => {onClose(), setIsAddingEmployee(""), setBtnDisable(false)}}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Add an Employee</ModalHeader>
@@ -413,7 +413,7 @@ const Details = () => {
               >
                 Add employee
               </Button>
-              <Button onClick={onClose}>Cancel</Button>
+              <Button onClick={() => {onClose(), setIsAddingEmployee(""), setBtnDisable(false)}}>Cancel</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
@@ -480,7 +480,7 @@ const Details = () => {
                       <FormLabel>Payment in USD</FormLabel>
                       <Input
                         placeholder="Payment of the employee in USD"
-                        value={parseFloat(editFormInput.payment).toFixed(2)}
+                        value={editFormInput.payment}
                         onChange={(e) =>
                           updateEditFormInput({
                             ...editFormInput,

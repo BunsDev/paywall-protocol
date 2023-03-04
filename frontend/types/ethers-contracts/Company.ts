@@ -38,7 +38,7 @@ export interface CompanyInterface extends utils.Interface {
     "id()": FunctionFragment;
     "name()": FunctionFragment;
     "owner()": FunctionFragment;
-    "payEmployee()": FunctionFragment;
+    "payEmployee(uint256)": FunctionFragment;
     "registerEmployee(string,string,address,uint256)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
@@ -88,7 +88,7 @@ export interface CompanyInterface extends utils.Interface {
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "payEmployee",
-    values?: undefined
+    values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
     functionFragment: "registerEmployee",
@@ -272,6 +272,7 @@ export interface Company extends BaseContract {
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     payEmployee(
+      exchangeRate: PromiseOrValue<BigNumberish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -330,6 +331,7 @@ export interface Company extends BaseContract {
   owner(overrides?: CallOverrides): Promise<string>;
 
   payEmployee(
+    exchangeRate: PromiseOrValue<BigNumberish>,
     overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -387,7 +389,10 @@ export interface Company extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    payEmployee(overrides?: CallOverrides): Promise<void>;
+    payEmployee(
+      exchangeRate: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     registerEmployee(
       _employeeName: PromiseOrValue<string>,
@@ -476,6 +481,7 @@ export interface Company extends BaseContract {
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     payEmployee(
+      exchangeRate: PromiseOrValue<BigNumberish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -525,6 +531,7 @@ export interface Company extends BaseContract {
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     payEmployee(
+      exchangeRate: PromiseOrValue<BigNumberish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
