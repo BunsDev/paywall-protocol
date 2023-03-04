@@ -131,17 +131,11 @@ describe("companyContract test", () => {
             const expectBalance1 =  1000 / exchangeRate.USD;
             const expectBalance2 =  2000 / exchangeRate.USD;
 
-            console.log(updatebalance1)
+            const actaulbalance1 = (updatebalance1.toString() - balance1.toString()) / 1000000000000000000
+            const actaulbalance2 = (updatebalance2.toString() - balance2.toString()) / 1000000000000000000
 
-            console.log(balance1)
-
-            console.log((updatebalance1 - balance1).toString().slice(0, 4))
-            console.log(tokens(expectBalance1).toString().slice(0, 4))
-            console.log(tokens(expectBalance1).toString())
-            console.log(expectBalance1)
-
-            //expect(updatebalance1 - balance1).to.equal(Math.trunc(tokens(expectBalance1).toString()));
-            //expect(updatebalance2 - balance2).to.equal(Math.trunc(tokens(expectBalance2).toString()));
+            expect(actaulbalance1.toPrecision(4)).to.equal(expectBalance1.toPrecision(4));
+            expect(actaulbalance2.toPrecision(4)).to.equal(expectBalance2.toPrecision(4));
         });
 
     })
