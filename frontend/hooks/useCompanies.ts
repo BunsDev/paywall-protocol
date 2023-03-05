@@ -1,5 +1,5 @@
 import * as API from "@/services/api";
-import { ethers, providers } from "ethers";
+import { ethers } from "ethers";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { useSigner } from "wagmi";

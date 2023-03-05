@@ -66,7 +66,7 @@ const Dashboard = () => {
                     <Tr>
                       <Th>Company name</Th>
                       <Th>Id</Th>
-                      <Th isNumeric>Details</Th>
+                      <Th isNumeric>Manage</Th>
                     </Tr>
                   </Thead>
                 ) : (
@@ -94,7 +94,7 @@ const Dashboard = () => {
                             }}
                           >
                             <ButtonGroup
-                              btnName="Details"
+                              btnName="Manage"
                               handleClick={() => {}}
                               disable={false}
                             />

@@ -17,7 +17,7 @@ const About = () => {
           first by connecting your wallet, then proceed to register your company
           by clicking on the create button at the navbar. Input the name of your
           company and create it. After registering your company, you can then
-          proceed to your dashboard, refresh the page and click on the details
+          proceed to your dashboard, refresh the page and click on the Manage
           button at the right-hand side of your company name, that would take
           you to the company-details page where you can add, edit and pay all
           your employees.{" "}
