@@ -83,11 +83,11 @@ npm run dev
 # 📄 Smart-contract address
 
 ```
-0x8E20D52f2f90e065a386D87Da55e003fd97e28EF
+0x7aa744b6B1e0aF5ec1E2D00a4AA3199BF112FfbD
 ```
 
 # 📜 Fantom Explorer
 
 ```
-https://ftmscan.com/address/0x8E20D52f2f90e065a386D87Da55e003fd97e28EF#code
+https://ftmscan.com/address/0x7aa744b6B1e0aF5ec1E2D00a4AA3199BF112FfbD#code
 ```

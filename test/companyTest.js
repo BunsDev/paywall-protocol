@@ -103,7 +103,7 @@ describe("companyContract test", () => {
 
             const exchangeRateUSD = exchangeRate.USD * 1000000000;
 
-            const tokenAmount = 3000 / exchangeRate.USD;
+            const tokenAmount = 3001 / exchangeRate.USD;
             
             const transferTx = await company.payEmployee(exchangeRateUSD, { value: tokens(tokenAmount) })
             const result = await transferTx.wait();
@@ -121,7 +121,7 @@ describe("companyContract test", () => {
             
             const exchangeRateUSD = exchangeRate.USD * 1000000000;
 
-            const tokenAmount = 3000 / exchangeRate.USD;
+            const tokenAmount = 3001 / exchangeRate.USD;
             
             await company.connect(account1).payEmployee(exchangeRateUSD, { value: tokens(tokenAmount) })
 
@@ -134,8 +134,8 @@ describe("companyContract test", () => {
             const actaulbalance1 = (updatebalance1.toString() - balance1.toString()) / 1000000000000000000
             const actaulbalance2 = (updatebalance2.toString() - balance2.toString()) / 1000000000000000000
 
-            expect(actaulbalance1.toPrecision(4)).to.equal(expectBalance1.toPrecision(4));
-            expect(actaulbalance2.toPrecision(4)).to.equal(expectBalance2.toPrecision(4));
+            expect(actaulbalance1).to.equal(expectBalance1);
+            expect(actaulbalance2).to.equal(expectBalance2);
         });
 
     })

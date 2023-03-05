@@ -92,7 +92,7 @@ contract Company is Ownable {
       for (uint256 i = 0; i < count; i++) {
         employeeInfo storage allEmployee = employee[i]; 
         address payable employeeAddress = allEmployee.employeeAddress;
-        uint256 amount = ((allEmployee.payment * 1000000000) / exchangeRate) * 1000000000000000000;
+        uint256 amount = ((allEmployee.payment * 1000000000000000000000000000) / exchangeRate);
         employeeAddress.transfer(amount);
       }
 
