@@ -109,7 +109,7 @@ export const useCompanies = () => {
       const id = data.ids[i].toString();
       const paymentInFantom = ethers.utils.formatEther(payment.toString());
       const paymentInUSD = payment.toString();
-        //(await API.getExchangeRate()) * Number(paymentInFantom);
+      //(await API.getExchangeRate()) * Number(paymentInFantom);
 
       employeeList.push({
         employeeName,

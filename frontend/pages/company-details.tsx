@@ -214,7 +214,7 @@ const Details = () => {
 
           <div className=" flex flex-wrap justify-center items-center">
             <p className="mx-4">
-              Total : $  {totalPaymentInUSD ? totalPaymentInUSD : 0}
+              Total : $ {totalPaymentInUSD ? totalPaymentInUSD : 0}
             </p>
             <Button
               onClick={() => payEmployees()}
@@ -315,7 +315,12 @@ const Details = () => {
           </TableContainer>
         </div>
 
-        <Modal isOpen={isOpen} onClose={() => {onClose(), setIsAddingEmployee(""), setBtnDisable(false)}}>
+        <Modal
+          isOpen={isOpen}
+          onClose={() => {
+            onClose(), setIsAddingEmployee(""), setBtnDisable(false);
+          }}
+        >
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Add an Employee</ModalHeader>
@@ -413,7 +418,13 @@ const Details = () => {
               >
                 Add employee
               </Button>
-              <Button onClick={() => {onClose(), setIsAddingEmployee(""), setBtnDisable(false)}}>Cancel</Button>
+              <Button
+                onClick={() => {
+                  onClose(), setIsAddingEmployee(""), setBtnDisable(false);
+                }}
+              >
+                Cancel
+              </Button>
             </ModalFooter>
           </ModalContent>
         </Modal>

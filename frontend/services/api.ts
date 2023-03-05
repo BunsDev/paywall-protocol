@@ -135,5 +135,5 @@ export const PayEmployees = async (
 
   const tokenAmount = amount / exchangeRate + 0.001;
   const instance = fetchCompanyContract(address, signer);
-  await instance.payEmployee(exchangeRateToUSD, { value: (tokens(tokenAmount)) });
+  await instance.payEmployee(exchangeRateToUSD, { value: tokens(tokenAmount) });
 };
