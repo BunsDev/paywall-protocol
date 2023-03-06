@@ -91,7 +91,7 @@ const Details = () => {
           ? setTotalPaymentInUSD(res.reduce((a, b) => a + b))
           : null;
 
-        setLoading(false);
+        //setLoading(false);
       }
     };
 
