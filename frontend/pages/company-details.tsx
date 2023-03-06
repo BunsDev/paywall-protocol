@@ -80,7 +80,7 @@ const Details = () => {
 
         const res = await Promise.all(
           data.map(async (item) => {
-            return Number(item.paymentInUSD);
+            //return Number(item.paymentInUSD);
           })
         );
 
