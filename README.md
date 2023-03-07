@@ -77,7 +77,7 @@ npm install
 npm run dev
 ```
 
-- Note :- This app was deployed to Fantom mainnet, so you need to connect your Metamask wallet to Fantom mainnet before you can Interact with the app.
+- Note :- This app was deployed to Fantom mainnet, so you need to connect your Metamask wallet to Fantom //mainnet before you can Interact with the app.
  
 
 # 📄 Smart-contract address
