@@ -83,7 +83,7 @@ npm run dev
 # 📄 Smart-contract address
 
 ```
-0x7aa744b6B1e0aF5ec1E2D00a4AA3199BF112FfbD
+//0x7aa744b6B1e0aF5ec1E2D00a4AA3199BF112FfbD
 ```
 
 # 📜 Fantom Explorer
